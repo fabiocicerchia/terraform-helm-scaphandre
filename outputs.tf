@@ -1,14 +1,14 @@
 output "namespace" {
-  description = "Kubernetes namespace where Scaphandre is deployed"
-  value       = helm_release.scaphandre.namespace
+  description = "The namespace where Scaphandre is deployed"
+  value       = module.scaphandre.namespace
 }
 
 output "release_name" {
-  description = "Helm release name of Scaphandre"
-  value       = helm_release.scaphandre.name
+  description = "The Helm release name of Scaphandre"
+  value       = module.scaphandre.release_name
 }
 
-output "chart_version" {
-  description = "Chart version of Scaphandre deployment"
-  value       = helm_release.scaphandre.version
+output "version" {
+  description = "The version of Scaphandre deployed"
+  value       = module.scaphandre.version
 }
