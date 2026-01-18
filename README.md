@@ -16,7 +16,7 @@ Scaphandre provides container-level power consumption monitoring using CPU model
 
 ```hcl
 module "scaphandre" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-scaphandre-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-scaphandre-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   release_name    = "scaphandre"
@@ -56,7 +56,7 @@ module "scaphandre" {
 
 ```hcl
 module "scaphandre" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-scaphandre-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-scaphandre-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
 }
@@ -66,7 +66,7 @@ module "scaphandre" {
 
 ```hcl
 module "scaphandre" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-scaphandre-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-scaphandre-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   chart_version   = "0.5.0"
