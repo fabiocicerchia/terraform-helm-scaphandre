@@ -1,9 +1,13 @@
-module "scaphandre" {
-  source = "./modules/scaphandre"
+resource "helm_release" "scaphandre" {
+  name       = var.release_name
+  repository = "${path.module}/.upstream/helm/"
+  chart      = "scaphandre"
+  version    = var.chart_version != "" ? var.chart_version : null
 
-  kubeconfig_path = var.kubeconfig_path
-  release_name    = var.release_name
-  namespace       = var.namespace
-  chart_version   = var.chart_version
-  values          = var.values
+  dependency_update = true
+  create_namespace  = true
+  namespace         = var.namespace
+  replace           = true
+
+  values = [yamlencode(var.values)]
 }

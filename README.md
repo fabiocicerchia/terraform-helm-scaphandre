@@ -18,7 +18,6 @@ Scaphandre provides container-level power consumption monitoring using CPU model
 module "scaphandre" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-scaphandre.git?ref=main"
 
-  kubeconfig_path = "~/.kube/config"
   release_name    = "scaphandre"
   namespace       = "scaphandre"
 }
@@ -28,7 +27,6 @@ module "scaphandre" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| `kubeconfig_path` | Path to the kubeconfig file | `string` | `"~/.kube/config"` | no |
 | `release_name` | Helm release name for Scaphandre | `string` | `"scaphandre"` | no |
 | `namespace` | Kubernetes namespace for Scaphandre | `string` | `"scaphandre"` | no |
 | `chart_version` | Helm chart version (empty string for latest) | `string` | `""` | no |
@@ -57,8 +55,6 @@ module "scaphandre" {
 ```hcl
 module "scaphandre" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-scaphandre.git?ref=main"
-
-  kubeconfig_path = "~/.kube/config"
 }
 ```
 
@@ -68,7 +64,6 @@ module "scaphandre" {
 module "scaphandre" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-scaphandre.git?ref=main"
 
-  kubeconfig_path = "~/.kube/config"
   chart_version   = "0.5.0"
 }
 ```
