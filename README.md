@@ -1,6 +1,20 @@
-# Scaphandre Power Monitoring Module
+# Terraform Module for Scaphandre
 
 Terraform module to deploy Scaphandre (container-level power consumption monitoring) on Kubernetes using Helm.
+
+## Why This Matters
+
+Understanding where energy is consumed in your infrastructure is the first step toward reducing environmental impact. Without visibility into power consumption at the container and process level, optimisation efforts are essentially guesswork.
+
+Scaphandre provides the granular metrics needed to:
+
+* 🔍 **Identify energy-intensive workloads** running in your cluster
+* 📊 **Measure actual power consumption** at container and process levels
+* 🎯 **Target optimisation efforts** where they'll have the most impact
+* 📈 **Track improvements** as you implement energy-saving changes
+* 💡 **Make data-driven decisions** about resource allocation
+
+By making power consumption visible and measurable, Scaphandre enables teams to optimise for energy efficiency alongside performance and cost—essential for meeting sustainability goals.
 
 ## Overview
 
@@ -42,7 +56,7 @@ module "scaphandre" {
 
 ## Requirements
 
-- Terraform >= 1.0
+- Terraform >= 1.0 or OpenTofu >= 1.6
 - Helm >= 2.0
 - Kubernetes v1.24+
 - kubectl configured to access your cluster
@@ -93,3 +107,7 @@ curl http://localhost:8080/metrics
 - [Scaphandre GitHub](https://github.com/hubblo-org/scaphandre)
 - [Scaphandre Documentation](https://hubblo-org.github.io/scaphandre/)
 - [Scaphandre Metrics](https://hubblo-org.github.io/scaphandre/references/metrics.html)
+
+## License
+
+MIT
