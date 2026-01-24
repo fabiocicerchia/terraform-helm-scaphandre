@@ -11,9 +11,9 @@ terraform {
 module "scaphandre" {
   source = "../"
 
-  release_name    = "scaphandre"
-  namespace       = "scaphandre-system"
-  chart_version   = ""
+  release_name  = "scaphandre"
+  namespace     = "scaphandre-system"
+  chart_version = ""
 
   values = yamlencode({})
 }
