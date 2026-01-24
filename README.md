@@ -16,7 +16,7 @@ Scaphandre provides container-level power consumption monitoring using CPU model
 
 ```hcl
 module "scaphandre" {
-  source = "git::https://github.com/fabiocicerchia/terraform-helm-scaphandre.git?ref=main"
+  source = "fabiocicerchia/scaphandre/helm"
 
   release_name    = "scaphandre"
   namespace       = "scaphandre"
@@ -54,7 +54,7 @@ module "scaphandre" {
 
 ```hcl
 module "scaphandre" {
-  source = "git::https://github.com/fabiocicerchia/terraform-helm-scaphandre.git?ref=main"
+  source = "fabiocicerchia/scaphandre/helm"
 }
 ```
 
@@ -62,7 +62,7 @@ module "scaphandre" {
 
 ```hcl
 module "scaphandre" {
-  source = "git::https://github.com/fabiocicerchia/terraform-helm-scaphandre.git?ref=main"
+  source = "fabiocicerchia/scaphandre/helm"
 
   chart_version   = "0.5.0"
 }
