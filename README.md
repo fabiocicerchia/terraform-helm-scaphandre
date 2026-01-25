@@ -26,6 +26,10 @@ Scaphandre provides container-level power consumption monitoring using CPU model
 - **Prometheus Integration**: Exports metrics for Prometheus scraping
 - **Multi-node Support**: Monitors all nodes in the cluster
 
+## Dependencies
+
+**Important:** Scaphandre requires Prometheus to function properly. Scaphandre exports metrics to Prometheus for monitoring and visualization. Ensure you have Prometheus deployed in your cluster before deploying Scaphandre.
+
 ## Quick Start
 
 ```hcl
@@ -95,6 +99,19 @@ kubectl logs -n scaphandre -l app=scaphandre --tail=50
 kubectl port-forward -n scaphandre <pod-name> 8080:8080
 curl http://localhost:8080/metrics
 ```
+
+## Grafana Dashboard
+
+Scaphandre provides a Grafana dashboard for visualizing power consumption metrics. This dashboard needs to be manually imported into Grafana:
+
+**Dashboard URL:** https://raw.githubusercontent.com/hubblo-org/scaphandre/refs/heads/main/docs_src/tutorials/grafana-kubernetes-dashboard.json
+
+To import the dashboard:
+1. Access your Grafana instance
+2. Navigate to **Dashboards** → **Import**
+3. Paste the URL above or download the JSON and upload it
+4. Select your Prometheus data source
+5. Click **Import**
 
 ## Supported Architectures
 
