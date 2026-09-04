@@ -1,0 +1,9 @@
+{
+  "Exclude": [
+    "^LICENSE$",
+    "^\\.gitmodules$"
+  ],
+  "Disable": {
+    "IndentSize": true
+  }
+}
