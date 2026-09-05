@@ -8,11 +8,11 @@ Understanding where energy is consumed in your infrastructure is the first step 
 
 Scaphandre provides the granular metrics needed to:
 
-* 🔍 **Identify energy-intensive workloads** running in your cluster
-* 📊 **Measure actual power consumption** at container and process levels
-* 🎯 **Target optimisation efforts** where they'll have the most impact
-* 📈 **Track improvements** as you implement energy-saving changes
-* 💡 **Make data-driven decisions** about resource allocation
+- 🔍 **Identify energy-intensive workloads** running in your cluster
+- 📊 **Measure actual power consumption** at container and process levels
+- 🎯 **Target optimisation efforts** where they'll have the most impact
+- 📈 **Track improvements** as you implement energy-saving changes
+- 💡 **Make data-driven decisions** about resource allocation
 
 By making power consumption visible and measurable, Scaphandre enables teams to optimise for energy efficiency alongside performance and cost—essential for meeting sustainability goals.
 
@@ -43,20 +43,20 @@ module "scaphandre" {
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| `release_name` | Helm release name for Scaphandre | `string` | `"scaphandre"` | no |
-| `namespace` | Kubernetes namespace for Scaphandre | `string` | `"scaphandre"` | no |
-| `chart_version` | Helm chart version (empty string for latest) | `string` | `""` | no |
-| `values` | Helm values for Scaphandre deployment | `any` | `{}` | no |
+| Name            | Description                                  | Type     | Default        | Required |
+| --------------- | -------------------------------------------- | -------- | -------------- | :------: |
+| `release_name`  | Helm release name for Scaphandre             | `string` | `"scaphandre"` | no       |
+| `namespace`     | Kubernetes namespace for Scaphandre          | `string` | `"scaphandre"` | no       |
+| `chart_version` | Helm chart version (empty string for latest) | `string` | `""`           | no       |
+| `values`        | Helm values for Scaphandre deployment        | `any`    | `{}`           | no       |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| `namespace` | Kubernetes namespace where Scaphandre is deployed |
-| `release_name` | Helm release name of Scaphandre |
-| `chart_version` | Chart version of Scaphandre deployment |
+| Name            | Description                                       |
+| --------------- | ------------------------------------------------- |
+| `namespace`     | Kubernetes namespace where Scaphandre is deployed |
+| `release_name`  | Helm release name of Scaphandre                   |
+| `chart_version` | Chart version of Scaphandre deployment            |
 
 ## Requirements
 
@@ -104,14 +104,15 @@ curl http://localhost:8080/metrics
 
 Scaphandre provides a Grafana dashboard for visualizing power consumption metrics. This dashboard needs to be manually imported into Grafana:
 
-**Dashboard URL:** https://raw.githubusercontent.com/hubblo-org/scaphandre/refs/heads/main/docs_src/tutorials/grafana-kubernetes-dashboard.json
+**Dashboard URL:** <https://raw.githubusercontent.com/hubblo-org/scaphandre/refs/heads/main/docs_src/tutorials/grafana-kubernetes-dashboard.json>
 
 To import the dashboard:
+
 1. Access your Grafana instance
-2. Navigate to **Dashboards** → **Import**
-3. Paste the URL above or download the JSON and upload it
-4. Select your Prometheus data source
-5. Click **Import**
+1. Navigate to **Dashboards** → **Import**
+1. Paste the URL above or download the JSON and upload it
+1. Select your Prometheus data source
+1. Click **Import**
 
 ## Supported Architectures
 
