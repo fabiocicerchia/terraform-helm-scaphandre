@@ -16,7 +16,8 @@ resource "helm_release" "scaphandre" {
 resource "null_resource" "scaphandre_patch_servicemonitor" {
   provisioner "local-exec" {
     command = <<EOT
-      kubectl patch servicemonitor -n ${var.namespace} ${var.release_name} -p '{"spec":{"fallbackScrapeProtocol":"PrometheusText0.0.4"}}'
+      kubectl patch servicemonitor -n ${var.namespace} ${var.release_name} \
+        -p '{"spec":{"fallbackScrapeProtocol":"PrometheusText0.0.4"}}'
     EOT
   }
 
