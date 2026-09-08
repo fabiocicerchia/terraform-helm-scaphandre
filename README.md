@@ -44,7 +44,7 @@ module "scaphandre" {
 ## Inputs
 
 | Name            | Description                                  | Type     | Default        | Required |
-| --------------- | -------------------------------------------- | -------- | -------------- | :------: |
+| --------------- | -------------------------------------------- | -------- | -------------- | -------- |
 | `release_name`  | Helm release name for Scaphandre             | `string` | `"scaphandre"` | no       |
 | `namespace`     | Kubernetes namespace for Scaphandre          | `string` | `"scaphandre"` | no       |
 | `chart_version` | Helm chart version (empty string for latest) | `string` | `""`           | no       |
