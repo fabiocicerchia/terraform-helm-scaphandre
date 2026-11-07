@@ -12,7 +12,7 @@ Feature: Pinning the Scaphandre chart version
     Then Scaphandre is installed from <chart_selected>
 
     Examples:
-      | chart_version_input | chart_selected                                                          |
-      | nothing             | the Scaphandre chart shipped with the module, with no version requested |
-      | ""                  | the Scaphandre chart shipped with the module, with no version requested |
-      | "1.0.0"             | the Scaphandre chart at version 1.0.0                                   |
+      | chart_version_input | chart_selected                                                             |
+      | nothing             | the Scaphandre chart shipped with the module, with no version requested    |
+      | ""                  | the Scaphandre chart shipped with the module, with no version requested    |
+      | "1.0.0"             | the Scaphandre chart shipped with the module, with version 1.0.0 requested |

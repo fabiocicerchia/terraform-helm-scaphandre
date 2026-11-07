@@ -19,8 +19,8 @@ Feature: Installing the Scaphandre release
       | energy-monitor |
 
   @id:deployment.release-install.002 @rule:scaphandre.release.replaces-existing-release @inferred @source:main.tf#helm_release.scaphandre @questionable
-  Scenario: An existing release with the same name is taken over, not refused
-    Given a Helm release named "scaphandre" already exists in the target namespace and Terraform does not manage it
+  Scenario: A failed release with the same name is replaced, not refused
+    Given an earlier install of a Helm release named "scaphandre" in the target namespace failed and Terraform does not manage it
     When the operator applies the configuration
     Then the apply does not fail with a name conflict
     And the "scaphandre" release now runs the module's chart and values
