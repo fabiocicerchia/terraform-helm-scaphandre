@@ -1,0 +1,528 @@
+{
+ "excluded": {
+  "examples/examples": [
+   {
+    "candidate": "Example references the module by relative path ../",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "examples/main.tf#module.scaphandre"
+   },
+   {
+    "candidate": "Example does not declare the null provider itself (inherited from module)",
+    "covered_by": "",
+    "reason": "TECH_INFRA",
+    "source": "examples/main.tf#terraform"
+   },
+   {
+    "candidate": "ServiceMonitor scrape-protocol patch triggered by the example",
+    "covered_by": "belongs to the root module's observability/scrape-compatibility feature, not this example",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#null_resource.scaphandre_patch_servicemonitor"
+   },
+   {
+    "candidate": "The reference example deploys Scaphandre as release \"scaphandre\" in namespace \"scaphandre-system\" on the latest chart",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "examples/main.tf#module.scaphandre"
+   },
+   {
+    "candidate": "The reference example passes no custom configuration to Scaphandre",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "examples/main.tf#module.scaphandre"
+   }
+  ],
+  "examples/outputs": [
+   {
+    "candidate": "Output descriptions text (\"The namespace where Scaphandre is deployed\", etc.)",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "examples/outputs.tf#scaphandre_namespace"
+   },
+   {
+    "candidate": "Module-level namespace/release_name/chart_version outputs reporting deployment details",
+    "covered_by": "observability/deployment-outputs (module outputs.tf owns this rule; this module only re-exposes it)",
+    "reason": "DUPLICATE_OF",
+    "source": "outputs.tf#namespace"
+   }
+  ],
+  "terraform-helm-scaphandre/makefile": [
+   {
+    "candidate": "make setup installs the pre-commit hook",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#setup"
+   },
+   {
+    "candidate": "make install downloads pinned providers via terraform init -backend=false",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#install"
+   },
+   {
+    "candidate": "make lint runs every pre-commit hook over all files",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#lint"
+   },
+   {
+    "candidate": "make format rewrites Terraform sources with terraform fmt -recursive",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#format"
+   },
+   {
+    "candidate": "make analyze runs tflint --recursive when tflint is present",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#analyze"
+   },
+   {
+    "candidate": "Targets are declared .PHONY",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "Makefile#.PHONY"
+   },
+   {
+    "candidate": "help output column formatting (%-10s padding)",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "Makefile#help"
+   }
+  ],
+  "terraform-helm-scaphandre/outputs": [
+   {
+    "candidate": "Output descriptions text (namespace/release name/chart version descriptions)",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "outputs.tf#namespace"
+   },
+   {
+    "candidate": "Outputs are read from helm_release attributes rather than echoing the input variables",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "outputs.tf#chart_version"
+   }
+  ],
+  "terraform-helm-scaphandre/terraform-helm-scaphandre": [
+   {
+    "candidate": "Chart dependencies are refreshed before install (dependency_update)",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "main.tf#helm_release.scaphandre"
+   },
+   {
+    "candidate": "Chart is read from the vendored .upstream git submodule path",
+    "covered_by": "",
+    "reason": "TECH_INFRA",
+    "source": "main.tf#helm_release.scaphandre"
+   },
+   {
+    "candidate": "Patch ordering: kubectl patch runs only after the Helm release (depends_on)",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "main.tf#null_resource.scaphandre_patch_servicemonitor"
+   },
+   {
+    "candidate": "After installation the Scaphandre ServiceMonitor falls back to the Prometheus text 0.0.4 protocol",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#null_resource.scaphandre_patch_servicemonitor"
+   },
+   {
+    "candidate": "The scrape protocol fallback is not re-applied on later changes",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#null_resource.scaphandre_patch_servicemonitor"
+   }
+  ],
+  "terraform-helm-scaphandre/tflint": [
+   {
+    "candidate": "The terraform tflint plugin is enabled with preset \"all\", turning on every bundled rule (deprecated syntax, standard module structure, comment syntax, etc.) beyond the ones listed",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#plugin \"terraform\""
+   },
+   {
+    "candidate": "Explicit rule blocks duplicate rules already switched on by preset \"all\"",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": ".tflint.hcl#plugin \"terraform\""
+   },
+   {
+    "candidate": "make analyze refuses with exit 69 and an install hint when tflint is missing",
+    "covered_by": "belongs to the Makefile (task-commands) module, not tflint",
+    "reason": "UNVERIFIABLE",
+    "source": "Makefile#analyze"
+   }
+  ],
+  "terraform-helm-scaphandre/variables": [
+   {
+    "candidate": "Every input declares a description and a type",
+    "covered_by": "",
+    "reason": "TECH_DEVTOOLING",
+    "source": "variables.tf"
+   },
+   {
+    "candidate": "values accepts non-map types (type any) and only fails once Helm sees it",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "variables.tf#values"
+   },
+   {
+    "candidate": "No validation of release name or namespace format (relies on Helm/Kubernetes refusal)",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "variables.tf#release_name"
+   }
+  ],
+  "terraform-helm-scaphandre/versions": [
+   {
+    "candidate": "Providers are sourced from the hashicorp/helm and hashicorp/null registry addresses",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "versions.tf#terraform"
+   }
+  ]
+ },
+ "lifted": {
+  "examples/examples": [],
+  "examples/outputs": [],
+  "terraform-helm-scaphandre/makefile": [],
+  "terraform-helm-scaphandre/outputs": [],
+  "terraform-helm-scaphandre/terraform-helm-scaphandre": [],
+  "terraform-helm-scaphandre/tflint": [],
+  "terraform-helm-scaphandre/variables": [],
+  "terraform-helm-scaphandre/versions": []
+ },
+ "retired": [],
+ "scenarios": {
+  "adoption.tool-compatibility.001": {
+   "file": "specs/adoption/tool-compatibility/supported-tool-versions.feature",
+   "fingerprint": "272eb18ed0fc",
+   "human": false,
+   "rule": "adoption.tool-compatibility.minimum-cli-version",
+   "source": "versions.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "adoption.tool-compatibility.002": {
+   "file": "specs/adoption/tool-compatibility/supported-tool-versions.feature",
+   "fingerprint": "272eb18ed0fc",
+   "human": false,
+   "rule": "adoption.tool-compatibility.minimum-provider-versions",
+   "source": "versions.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "adoption.usage-example.001": {
+   "file": "specs/adoption/usage-example/reference-example.feature",
+   "fingerprint": "7b966ce08ec2",
+   "human": false,
+   "rule": "adoption.usage-example.reports-deployment-details",
+   "source": "examples/outputs.tf#scaphandre_namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "adoption.usage-example.002": {
+   "file": "specs/adoption/usage-example/reference-example.feature",
+   "fingerprint": "d9b0ccb746cd",
+   "human": false,
+   "rule": "adoption.usage-example.requires-helm-provider-2x",
+   "source": "examples/main.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "adoption.usage-example.003": {
+   "file": "specs/adoption/usage-example/example-deployment-outputs.feature",
+   "fingerprint": "7b966ce08ec2",
+   "human": false,
+   "rule": "adoption.usage-example.reexposes-deployment-details",
+   "source": "examples/outputs.tf#scaphandre_namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment.chart-values.001": {
+   "file": "specs/deployment/chart-values/scaphandre-custom-values.feature",
+   "fingerprint": "88941b73bca4",
+   "human": false,
+   "rule": "scaphandre.values.passed-through",
+   "source": "main.tf#helm_release.scaphandre",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment.chart-values.002": {
+   "file": "specs/deployment/chart-values/custom-chart-values.feature",
+   "fingerprint": "6656e6d65d5a",
+   "human": false,
+   "rule": "deployment.chart-values.values-passed-through",
+   "source": "variables.tf#values",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment.chart-version.001": {
+   "file": "specs/deployment/chart-version/scaphandre-chart-version.feature",
+   "fingerprint": "88941b73bca4",
+   "human": false,
+   "rule": "scaphandre.chart-version.pinned-or-unpinned",
+   "source": "main.tf#helm_release.scaphandre",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment.chart-version.002": {
+   "file": "specs/deployment/chart-version/chart-version-pinning.feature",
+   "fingerprint": "c0ffe56ba3b4",
+   "human": false,
+   "rule": "deployment.chart-version.empty-version-is-unpinned",
+   "source": "variables.tf#chart_version",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment.namespace.001": {
+   "file": "specs/deployment/namespace/scaphandre-namespace.feature",
+   "fingerprint": "88941b73bca4",
+   "human": false,
+   "rule": "scaphandre.namespace.created-if-missing",
+   "source": "main.tf#helm_release.scaphandre",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment.namespace.002": {
+   "file": "specs/deployment/namespace/namespace-placement.feature",
+   "fingerprint": "883d996a23df",
+   "human": false,
+   "rule": "deployment.namespace.namespace-defaults-to-scaphandre",
+   "source": "variables.tf#namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment.release-install.001": {
+   "file": "specs/deployment/release-install/scaphandre-release-install.feature",
+   "fingerprint": "88941b73bca4",
+   "human": false,
+   "rule": "scaphandre.release.installed-under-configured-name",
+   "source": "main.tf#helm_release.scaphandre",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment.release-install.002": {
+   "file": "specs/deployment/release-install/scaphandre-release-install.feature",
+   "fingerprint": "88941b73bca4",
+   "human": false,
+   "rule": "scaphandre.release.replaces-existing-release",
+   "source": "main.tf#helm_release.scaphandre",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "deployment.release-install.003": {
+   "file": "specs/deployment/release-install/release-name.feature",
+   "fingerprint": "dd227bbe997c",
+   "human": false,
+   "rule": "deployment.release-install.release-name-defaults-to-scaphandre",
+   "source": "variables.tf#release_name",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.code-quality.001": {
+   "file": "specs/developer-tooling/code-quality/terraform-lint-rules.feature",
+   "fingerprint": "c9b2b3f5578c",
+   "human": false,
+   "rule": "code-quality.lint.interface-documented-and-typed",
+   "source": ".tflint.hcl#rule \"terraform_documented_variables\"",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.code-quality.002": {
+   "file": "specs/developer-tooling/code-quality/terraform-lint-rules.feature",
+   "fingerprint": "217d22c5d5a5",
+   "human": false,
+   "rule": "code-quality.lint.snake-case-names",
+   "source": ".tflint.hcl#rule \"terraform_naming_convention\"",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.code-quality.003": {
+   "file": "specs/developer-tooling/code-quality/terraform-lint-rules.feature",
+   "fingerprint": "f9106cc5a0a7",
+   "human": false,
+   "rule": "code-quality.lint.versions-and-sources-pinned",
+   "source": ".tflint.hcl#rule \"terraform_module_pinned_source\"",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.code-quality.004": {
+   "file": "specs/developer-tooling/code-quality/terraform-lint-rules.feature",
+   "fingerprint": "b3dd9f47adc0",
+   "human": false,
+   "rule": "code-quality.lint.no-unused-declarations",
+   "source": ".tflint.hcl#rule \"terraform_unused_declarations\"",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.task-commands.001": {
+   "file": "specs/developer-tooling/task-commands/make-task-commands.feature",
+   "fingerprint": "517de792f113",
+   "human": false,
+   "rule": "tooling.make.bare-make-lists-verbs",
+   "source": "Makefile#help",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.task-commands.002": {
+   "file": "specs/developer-tooling/task-commands/make-task-commands.feature",
+   "fingerprint": "4d16ff5f8f37",
+   "human": false,
+   "rule": "tooling.make.not-applicable-verbs-explain-themselves",
+   "source": "Makefile#build",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.task-commands.003": {
+   "file": "specs/developer-tooling/task-commands/make-task-commands.feature",
+   "fingerprint": "c5311b237c3f",
+   "human": false,
+   "rule": "tooling.make.analyze-refuses-without-tflint",
+   "source": "Makefile#analyze",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.task-commands.004": {
+   "file": "specs/developer-tooling/task-commands/make-task-commands.feature",
+   "fingerprint": "8145e195cde0",
+   "human": false,
+   "rule": "tooling.make.test-validates-module-and-example",
+   "source": "Makefile#test",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "observability.deployment-outputs.001": {
+   "file": "specs/observability/deployment-outputs/deployment-details.feature",
+   "fingerprint": "e8d17cc635b1",
+   "human": false,
+   "rule": "scaphandre.outputs.reports-namespace-and-release-name",
+   "source": "outputs.tf#namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "observability.deployment-outputs.002": {
+   "file": "specs/observability/deployment-outputs/deployment-details.feature",
+   "fingerprint": "b25c27db65bb",
+   "human": false,
+   "rule": "scaphandre.outputs.reports-chart-version",
+   "source": "outputs.tf#chart_version",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  }
+ },
+ "taxonomy": {
+  "domains": [
+   {
+    "areas": [
+     {
+      "description": "Creating or replacing the Scaphandre Helm release under a configurable release name, from the vendored chart with its dependencies refreshed.",
+      "slug": "release-install",
+      "title": "Release installation"
+     },
+     {
+      "description": "Choosing the Kubernetes namespace Scaphandre runs in and creating it automatically if it does not exist.",
+      "slug": "namespace",
+      "title": "Namespace placement"
+     },
+     {
+      "description": "Pinning a specific Scaphandre chart version, or leaving it empty to track the latest.",
+      "slug": "chart-version",
+      "title": "Chart version pinning"
+     },
+     {
+      "description": "Passing arbitrary Helm values through to customise the Scaphandre deployment.",
+      "slug": "chart-values",
+      "title": "Custom configuration"
+     }
+    ],
+    "description": "Installing Scaphandre, the power-consumption exporter, onto a Kubernetes cluster as a Helm release.",
+    "slug": "deployment",
+    "title": "Deployment"
+   },
+   {
+    "areas": [
+     {
+      "description": "Patching the Scaphandre ServiceMonitor after install so Prometheus falls back to the plain-text 0.0.4 scrape protocol.",
+      "slug": "scrape-compatibility",
+      "title": "Prometheus scrape compatibility"
+     },
+     {
+      "description": "Reporting the namespace, release name and chart version of the deployed Scaphandre for use by calling configurations.",
+      "slug": "deployment-outputs",
+      "title": "Deployment details"
+     }
+    ],
+    "description": "Making the deployed exporter's metrics consumable by Prometheus and its details available to the rest of the stack.",
+    "slug": "observability",
+    "title": "Observability integration"
+   },
+   {
+    "areas": [
+     {
+      "description": "The minimum Terraform/OpenTofu and Helm/null provider versions the module requires.",
+      "slug": "tool-compatibility",
+      "title": "Supported tool versions"
+     },
+     {
+      "description": "A runnable example root configuration that calls the module and re-exposes its outputs.",
+      "slug": "usage-example",
+      "title": "Reference example"
+     }
+    ],
+    "description": "What a consumer needs to know to use the module: supported tool versions and a working reference usage.",
+    "slug": "adoption",
+    "title": "Adoption and compatibility"
+   },
+   {
+    "areas": [
+     {
+      "description": "The standard set of make verbs, including help, setup, provider install, and the declared no-op build and run.",
+      "slug": "task-commands",
+      "title": "Task commands"
+     },
+     {
+      "description": "Checking that the module and its example are valid Terraform configurations.",
+      "slug": "validation",
+      "title": "Validation"
+     },
+     {
+      "description": "Formatting, pre-commit hooks, and lint rules enforcing documented and typed variables and outputs, snake_case naming, pinned sources and no unused declarations.",
+      "slug": "code-quality",
+      "title": "Code quality checks"
+     }
+    ],
+    "description": "The commands and quality gates maintainers use to set up, check and tidy the module.",
+    "slug": "developer-tooling",
+    "title": "Developer tooling"
+   }
+  ]
+ }
+}
