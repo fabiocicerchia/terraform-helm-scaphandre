@@ -195,7 +195,15 @@
   "terraform-helm-scaphandre/variables": [],
   "terraform-helm-scaphandre/versions": []
  },
- "retired": [],
+ "retired": [
+  "deployment.chart-values.001",
+  "deployment.chart-version.001",
+  "deployment.release-install.001",
+  "observability.deployment-outputs.001",
+  "adoption.usage-example.001",
+  "developer-tooling.code-quality.002",
+  "developer-tooling.code-quality.004"
+ ],
  "scenarios": {
   "adoption.tool-compatibility.001": {
    "file": "specs/adoption/tool-compatibility/supported-tool-versions.feature",
@@ -213,16 +221,6 @@
    "human": false,
    "rule": "adoption.tool-compatibility.minimum-provider-versions",
    "source": "versions.tf#terraform",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
-  "adoption.usage-example.001": {
-   "file": "specs/adoption/usage-example/reference-example.feature",
-   "fingerprint": "7b966ce08ec2",
-   "human": false,
-   "rule": "adoption.usage-example.reports-deployment-details",
-   "source": "examples/outputs.tf#scaphandre_namespace",
    "status": "inferred",
    "test": "",
    "tests": []
@@ -247,32 +245,12 @@
    "test": "",
    "tests": []
   },
-  "deployment.chart-values.001": {
-   "file": "specs/deployment/chart-values/scaphandre-custom-values.feature",
-   "fingerprint": "88941b73bca4",
-   "human": false,
-   "rule": "scaphandre.values.passed-through",
-   "source": "main.tf#helm_release.scaphandre",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
   "deployment.chart-values.002": {
    "file": "specs/deployment/chart-values/custom-chart-values.feature",
    "fingerprint": "6656e6d65d5a",
    "human": false,
    "rule": "deployment.chart-values.values-passed-through",
    "source": "variables.tf#values",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
-  "deployment.chart-version.001": {
-   "file": "specs/deployment/chart-version/scaphandre-chart-version.feature",
-   "fingerprint": "88941b73bca4",
-   "human": false,
-   "rule": "scaphandre.chart-version.pinned-or-unpinned",
-   "source": "main.tf#helm_release.scaphandre",
    "status": "inferred",
    "test": "",
    "tests": []
@@ -307,16 +285,6 @@
    "test": "",
    "tests": []
   },
-  "deployment.release-install.001": {
-   "file": "specs/deployment/release-install/scaphandre-release-install.feature",
-   "fingerprint": "88941b73bca4",
-   "human": false,
-   "rule": "scaphandre.release.installed-under-configured-name",
-   "source": "main.tf#helm_release.scaphandre",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
   "deployment.release-install.002": {
    "file": "specs/deployment/release-install/scaphandre-release-install.feature",
    "fingerprint": "88941b73bca4",
@@ -347,32 +315,12 @@
    "test": "",
    "tests": []
   },
-  "developer-tooling.code-quality.002": {
-   "file": "specs/developer-tooling/code-quality/terraform-lint-rules.feature",
-   "fingerprint": "217d22c5d5a5",
-   "human": false,
-   "rule": "code-quality.lint.snake-case-names",
-   "source": ".tflint.hcl#rule \"terraform_naming_convention\"",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
   "developer-tooling.code-quality.003": {
    "file": "specs/developer-tooling/code-quality/terraform-lint-rules.feature",
    "fingerprint": "f9106cc5a0a7",
    "human": false,
    "rule": "code-quality.lint.versions-and-sources-pinned",
    "source": ".tflint.hcl#rule \"terraform_module_pinned_source\"",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
-  "developer-tooling.code-quality.004": {
-   "file": "specs/developer-tooling/code-quality/terraform-lint-rules.feature",
-   "fingerprint": "b3dd9f47adc0",
-   "human": false,
-   "rule": "code-quality.lint.no-unused-declarations",
-   "source": ".tflint.hcl#rule \"terraform_unused_declarations\"",
    "status": "inferred",
    "test": "",
    "tests": []
@@ -413,16 +361,6 @@
    "human": false,
    "rule": "tooling.make.test-validates-module-and-example",
    "source": "Makefile#test",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
-  "observability.deployment-outputs.001": {
-   "file": "specs/observability/deployment-outputs/deployment-details.feature",
-   "fingerprint": "e8d17cc635b1",
-   "human": false,
-   "rule": "scaphandre.outputs.reports-namespace-and-release-name",
-   "source": "outputs.tf#namespace",
    "status": "inferred",
    "test": "",
    "tests": []

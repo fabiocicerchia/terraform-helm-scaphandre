@@ -6,13 +6,6 @@ Feature: Running the reference example
     Given the operator has a Kubernetes cluster reachable by Helm
     And the operator runs the reference example root configuration
 
-  @id:adoption.usage-example.001 @rule:adoption.usage-example.reports-deployment-details @inferred @source:examples/outputs.tf#scaphandre_namespace
-  Scenario: The reference example reports where Scaphandre was deployed
-    When the operator applies the reference example
-    Then the output "scaphandre_namespace" shows "scaphandre-system"
-    And the output "scaphandre_release_name" shows "scaphandre"
-    And the output "scaphandre_chart_version" shows the chart version that was installed
-
   @id:adoption.usage-example.002 @rule:adoption.usage-example.requires-helm-provider-2x @inferred @source:examples/main.tf#terraform @questionable
   Scenario Outline: The reference example only runs with Terraform 1.0 or newer and a Helm provider in the 2.x line
     Given the operator's tooling is <terraform> with Helm provider <helm_provider>
